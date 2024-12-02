@@ -14,7 +14,7 @@
         .container{
             width: 100%;
             min-height: 90vh;
-            background-color:#f2f2f2;
+            background-color:#f9f6ee;
             padding: 6%;
         }
         .container h1{
@@ -28,6 +28,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
         }
         .hero-container .div1{
@@ -53,8 +54,20 @@
             font-size: 1rem;
             color: #fff;
         }
-        .div1 button:hover{
+        .div1 button:hover,.container h4 a:hover{
             filter: brightness(90%);
+        }
+        .container h4{
+            text-align: center;
+            font-size:1.1rem;
+            font-weight: 200;
+            margin-top: 5%;
+            letter-spacing: 1px;
+        }
+        .container h4 a{
+            text-decoration: none;
+            color: #f1ae0e;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -66,19 +79,20 @@
     var heading = '<h1>View Our Menu</h1>'
 
 
-    var image1='<img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/delicious-pizza-isolated-white.jpg" alt="img..." height="350" width="80">'
+    var image1='<img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/delicious-pizza-isolated-white.jpg" alt="img..." height="310" width="80">'
     var food_name1=' <h3>hot pizza</h3>'
     var button='<button>READ MORE</button>'
 
-    var image2=' <img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/high-angle-shot-vegetable-salad-white-bowl.jpg" alt="img..." height="350" width="80">'
+    var image2=' <img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/high-angle-shot-vegetable-salad-white-bowl.jpg" alt="img..." height="310" width="80">'
     var food_name2='<h3>salads</h3>'
 
-    var image3='<img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/pexels-photo-3681641.jpeg" alt="img..." height="350" width="80">'
+    var image3='<img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/pexels-photo-3681641.jpeg" alt="img..." height="310" width="80">'
     var food_name3='<h3>dessert</h3>'
 
-    var image4='<img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/pexels-photo-3939602.jpeg" alt="img..." height="350" width="80">'
+    var image4='<img src="https://assets.nicepagecdn.com/11a8ddce/4267640/images/pexels-photo-3939602.jpeg" alt="img..." height="310" width="80">'
     var food_name4='<h3>drinks</h3>'
 
+    var footer_text='<h4>Sample text. Click to select the Text Element. Image from <a href="#">Freepik</a></h4>'
     document.write(`
     <section class="container">
         ${heading}
@@ -107,6 +121,7 @@
             ${button}
             </div>
         </div>
+        ${footer_text}
     </section>
     `)
 </script>
