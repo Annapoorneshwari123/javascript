@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>d/f b/w let and var keywords</h1>
+        <p>if we declare any variable using let keyword that variable we can use within the specific block only but when we use the var the varibles can be access or use the declared varibles inside and outside the block.</p>
+    </center>
+   <script>
+
+    var a=20;
+    var b=30;
+    var c=200;
+
+    document.write(`<h1>a=${a}</h1>`)
+    document.write(`<h1>b=${b}</h1>`)
+    document.write(`<h1>c=${c}</h1>`)
+    
+    if(a<b){
+        document.write(`<h1>a=${a}</h1>`);
+        var d=10;
+        let e=100;
+        console.log(d);
+
+    }
+    console.log(d);
+    console.log(e);
+    
+    
+   </script> 
+</body>
+</html>
