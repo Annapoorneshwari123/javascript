@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container form{
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        .container form input, .container form select{
+            width: 100%;
+            padding: 6px;
+            font-size: 1.1rem;
+            margin-top: 3px;
+            border: none;
+            outline: none;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        .container form button{
+            margin-top: 10px;
+            width: 100%;
+            background-color: rgb(31, 83, 50);
+            color: #fff;
+            padding: 10px;
+            font-size: 1.1rem;
+            border: none;
+        }
+        /* .error{
+            background-color: rgba(255, 0, 0, 0.135);
+            padding: 1px;
+            border-radius: 100px;
+        } */
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form action="">
+            <label for="">username</label>
+            <input type="text" id="username" placeholder="enter your name">
+            <small id="username_error" class="error"></small>
+            <br>
+            <label for="">Email address</label>
+            <input type="date" id="email" placeholder="enter your email">
+            <small id="email_error" class="error"></small><br>
+            <label for="">Gender</label>
+            <select name="" id="gender">
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <small id="gender_error"></small>
+            <button type="button" onclick="createAccountHandler()">Create account</button>
+        </form>
+    </div>
+
+    <script>
+
+        let username = document.getElementById('username');
+        let name_error = document.getElementById('username_error');
+
+        let email = document.getElementById('email');
+        let email_error = document.getElementById('email_error');
+
+        let gender = document.getElementById('gender');
+        let gender_error = document.getElementById('gender_error')
+
+
+        function createAccountHandler(){
+            if(username.value == ""){
+                name_error.innerHTML = '<span style=color:red>Please fill username</span>'
+            }else if(username.value.length<=8){
+                     name_error.innerHTML = '<span style=color:red>Please enter above 8 charecters length username</span>'
+            }
+            else{
+                    name_error.innerHTML = '<span style="color:green">Valid usernmae</span>'
+            }
+
+
+            //checking email validation
+            if(email.value == ""){
+                email_error.innerHTML = '<span style=color:red>Please fill email address</span>'
+            }else if(email.value.length<=10){
+                     email_error.innerHTML = '<span style=color:red>Please enter above 10 charecters length email address</span>'
+            }
+            else{
+                    email_error.innerHTML = '<span style="color:green">Valid email address</span>'
+            }
+
+            //checking gender validation
+            if(gender.value == ""){
+                gender_error.innerHTML = '<span style=color:red>Please select gender</span>'
+            }
+            else{
+                    gender_error.innerHTML = '<span style="color:green">gender selected</span>'
+            }
+
+            let formdata = {
+                name:username.value,
+                emailAddress:email.value,
+                selectedGender:gender.value
+            }
+            console.log(formdata);
+            
+
+            
+        }
+    </script>
+</body>
+</html>
