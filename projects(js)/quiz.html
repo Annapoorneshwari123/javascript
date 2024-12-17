@@ -83,6 +83,7 @@ justify-content: end;
             display: flex;
             align-items: center;
             justify-content: center;
+            /* flex-direction: column; */
             gap: 20px;
             width: 100%;
             min-height: 70vh;
@@ -91,14 +92,29 @@ justify-content: end;
             background-color: #fff;
             /* flex: 1; */
             width: 40%;
+            height: 300px;
             padding: 20px;
+            border-radius: 20px;
+
         }
-        .card1 details summary,.card2 details summary{
-            font-size: 1.8rem;
+        .card1 h3,.card2 h3{
+            font-size: 1.5rem;
         }
         .card1 div,.card2 div{
             font-size: 1.5rem;
             margin-top: 20px;
+        }
+        .cards button{
+          display: block;
+          margin: auto;
+          margin-top: 20px;
+          border: none;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: #b664ba;
+          font-size: 1rem;
+          color: #fff;
+          
         }
     </style>
 </head>
@@ -203,38 +219,80 @@ justify-content: end;
 
         <section class="question-cards">
             <center><h1>QUESTIONS</h1></center>
+             <form>
            <div class="cards">
-            <div class="card1">
-            <details>
-                <summary>${quizdata[0].question}</summary> </details>
-            <div><input type="radio" name="" id=""> ${quizdata[0].answers[0]}<br><br>
-            <input type="radio" name="" id=""> ${quizdata[0].answers[1]}<br>
-            <input type="radio" name="" id=""> ${quizdata[0].answers[2]}<br>
-            <input type="radio" name="" id=""> ${quizdata[0].answers[3]}<br></div>
+              <div class="card1">
+            <h3>1)${quizdata[0].question}</h3>
+            <div><label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[0]}<br></label>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[1]}<br></label>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[2]}<br></label>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[3]}<br></label>
+            <button>submit</button></div>
+            
             </div>
 
 
             <div class="card2">
-             <details>
-                <summary>${quizdata[1].question}</summary> </details>
-           <div> <input type="radio" name="" id=""> ${quizdata[1].answers[0]}<br>
-            <input type="radio" name="" id=""> ${quizdata[1].answers[1]}<br>
-            <input type="radio" name="" id=""> ${quizdata[1].answers[2]}<br>
-            <input type="radio" name="" id=""> ${quizdata[1].answers[3]}<br></div>
+              <h3>2)${quizdata[1].question}</h3>
+           <div> <label for=""><input type="radio" name="" id=""> ${quizdata[1].answers[0]}<br>
+           <label for=""> <input type="radio" name="" id=""> ${quizdata[1].answers[1]}<br>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[1].answers[2]}<br>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[1].answers[3]}<br>
+            <button>submit</button></div>
+            </div></form>
+            </div>
+             </section>
+
+            <section class="question-cards">
+           <div class="cards">
+            <div class="card1">
+            <h3>3)${quizdata[2].question}</h3>
+            <div><input type="radio" name="" id=""> ${quizdata[2].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[2].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[2].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[2].answers[3]}<br>
+            <button>submit</button></div>
+            
+            </div>
+
+
+            <div class="card2">
+              <h3>4)${quizdata[3].question}</h3>
+           <div> <input type="radio" name="" id=""> ${quizdata[3].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[3].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[3].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[3].answers[3]}<br>
+            <button>submit</button></div>
             </div>
             </div>
              </section>
 
-            <div class="cards3">
-             <details>
-                <summary>${quizdata[2].question}</summary> </details>
-            <input type="radio" name="" id=""> ${quizdata[2].answers[0]}<br>
-            <input type="radio" name="" id=""> ${quizdata[2].answers[1]}<br>
-            <input type="radio" name="" id=""> ${quizdata[2].answers[2]}<br>
-            <input type="radio" name="" id=""> ${quizdata[2].answers[3]}<br>
+              <section class="question-cards">
+           <div class="cards">
+            <div class="card1">
+            <h3>5)${quizdata[4].question}</h3>
+            <div><input type="radio" name="" id=""> ${quizdata[4].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[4].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[4].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[4].answers[3]}<br>
+            <button>submit</button></div>
+            
             </div>
 
 
+            <div class="card2">
+              <h3>6)${quizdata[5].question}</h3>
+           <div> <input type="radio" name="" id=""> ${quizdata[5].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[5].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[5].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[5].answers[3]}<br>
+            <button>submit</button></div>
+            </div>
+            </div>
+             </section>
+
+
+             </section>
            
         
     `)

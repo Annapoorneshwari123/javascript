@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            min-height: 100vh;
+            background-color:#60b0c1;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        form{
+            width: 600px;
+            min-height: 60vh;
+            margin-top:4%;
+        }
+        form label{
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        form input,textarea{
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 15px;
+            background-color: transparent;
+            border-bottom: 3px solid #fff;
+            font-size: 1rem;
+            color: #fffffff4;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        form button{
+            border: none;
+            outline: none;
+            padding: 10px;
+            width: 100%;
+        }
+        .container img{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <form action="">
+            <label for="email">Email</label>
+            <input type="email" name="" id="email" placeholder="Enter a valid email address">
+            <small id="email_error" class="error"></small><br>
+            <label for="name">Name</label>
+            <input type="text" name="" id="name" placeholder="Enter your Name">
+            <small id="name_error" class="error"></small><br>
+            <label for="message">Message</label>
+            <textarea name="" id="message" cols="13" rows="4" placeholder="Enter your message"></textarea>
+            <small id="message_error" class="error"></small><br>
+
+            <button type="button" onclick=createAccountHandler()>SUBMIT</button>
+        </form>
+        <img src="https://images01.nicepage.com/a1389d7bc73adea1e1c1fb7e/b44ac57124db57e6a22ddaec/4.png" alt="img..." width="700">
+    </section>
+
+
+    <script>
+        let email=document.getElementById('email');
+        let email_error=document.getElementById('email_error');
+
+        let name=document.getElementById('name');
+        let name_error=document.getElementById('name_error');
+
+        let message=document.getElementById('message');
+        let message_error=document.getElementById('message_error');
+
+        function createAccountHandler(){
+            if(email.value==""){
+                email_error.innerHTML='<p style="color:red">please fill the required field</p>'
+            }else{
+                email_error.innerHTML='<p style="color:green">Valid email</p>'
+            }
+
+
+            if(name.value==""){
+                name_error.innerHTML='<p style="color:red">please fill the required field</p>'
+            }else if(name.value.length<=8){
+                name_error.innerHTML='<p style="color:red">please enter above 8 characters</p>'
+            }else{
+                name_error.innerHTML='<p style="color:green">Valid name</p>'
+            }
+
+            if(message.value==""){
+                message_error.innerHTML='<p style="color:red">please fill the required field</p>'
+            }else if(message.value.length<=20){
+                message_error.innerHTML='<p style="color:red">please enter above 20 character</p>'
+            }else{
+                message_error.innerHTML='<p style="color:green">good!</p>'
+            }
+
+            let data={
+                name:name.value,
+                email:email.value,
+                message:message.value
+            }
+            console.log(data);
+            
+        }
+    </script>
+</body>
+</html>
