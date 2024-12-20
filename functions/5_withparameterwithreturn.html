@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function totaloftwonumbers(firstnumber,secondNumber){
+            let total=firstnumber+secondNumber;
+            return total;
+        }
+        console.log(totaloftwonumbers(100,200));
+        console.log(totaloftwonumbers(283045500,4748892200));
+        console.log(totaloftwonumbers(5500,4748));
+
+
+        document.write(`<h1>${totaloftwonumbers(1,1)}</h1>`)
+        document.write(`<h1>${totaloftwonumbers(345661,15543222)}</h1>`)
+
+        
+
+        // creating account number in the format of the Ac************56
+
+        function formateaccountnumber(accountnumber) {
+            let output='';
+            for (i=0;i<=accountnumber.length-1;i++){
+                if(i<=1 || i>=accountnumber.length-2){
+                    output+=accountnumber[i];
+                }else{
+                    output+='*';
+                }
+            }
+            return output.toUpperCase();
+        }
+
+let input=prompt('enter the account number:');
+document.write(`<h1>${formateaccountnumber(input)}</h1>`)
+    </script>
+</body>
+</html>
