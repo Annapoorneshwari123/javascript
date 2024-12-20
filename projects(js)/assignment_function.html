@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Largest of two number using js</h1>
+
+
+    <script>
+//largest of 2 numbers
+
+let findlargest=(num1,num2)=>{
+let largest=num1>=num2?num1:num2;
+console.log(`${largest} is a largest of 2 numbers`);
+return largest;
+}
+
+findlargest(30,70);
+
+// let num1=prompt('enter the first number:'),num2=prompt('enter the first number:');
+
+let largest=(num1,num2)=>{
+    if(num1>=num2){
+        console.log(`${num1} is a largest number`);
+        return num1;
+    }else{
+        console.log(`${num2} is a largest number`);
+        return num2;
+    }
+}
+largest(100,90);
+
+
+
+//Largest of three numbers using js
+
+let largestnumber=(num1,num2,num3)=>{
+    if(num1>=num2){
+        console.log(`${num1} is a largest number`);
+        return num1;
+    }else if(num2>=num3){
+        console.log(`${num2} is a largest number`);
+        return num2;
+    }else{
+        console.log(`${num3} is a largest number`);
+        return num3;
+    }
+}
+largest(50,40,10);
+
+    </script>
+</body>
+</html>
