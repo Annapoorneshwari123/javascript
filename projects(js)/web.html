@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <section class="container" id="container"></section>
+
+    <script>
+        let container = document.getElementById('container');
+        container.style.margin = "0";
+        container.style.fontFamily = "Arial, sans-serif";
+       
+        let nav=document.createElement('div');
+        nav.style.backgroundColor = "#5BA82E";
+        nav.style.display = "flex";
+        nav.style.justifyContent = "space-between";
+        nav.style.alignItems = "center";
+        nav.style.padding = "15px 10%";
+
+        
+
+        let navlinks=['HOME','ABOUT US','BLOG','SERVICES','CONTACT'];
+        for(let i=0;i<=navlinks.length-1;i++){
+            let link=navlinks[i];
+
+            let  a=document.createElement('a');
+            a.textContent=link;
+            a.style.color='#fff';
+            a.style.margin='0px 10px';
+            a.style.textDecoration='none';
+            a.style.fontWeight='bold';
+            nav. appendChild(a);
+        }
+        // let logo = document.createElement('img');
+        // logo.src='https://cdn.sanity.io/images/dlsjp6ua/production/f7a4a43a46a0ac7b8611738668d4da42daf167d9-5591x3727.jpg';
+        // logo.alt='logo';
+        // logo.style.minheight='70vh';
+        // logo.style.width='100%';
+
+
+ const imgContainer = document.createElement("div");
+imgContainer.style.position = "relative";
+imgContainer.style.height = "90vh";
+imgContainer.style.overflow = "hidden";
+
+// Background image
+const img = document.createElement("img");
+img.src ='https://cdn.sanity.io/images/dlsjp6ua/production/f7a4a43a46a0ac7b8611738668d4da42daf167d9-5591x3727.jpg'; // Replace with actual path or URL
+img.style.width = "100%";
+img.style.height = "100%";
+img.style.objectFit = "cover";
+
+imgContainer.appendChild(img);
+
+        let textcontainer = document.createElement('div');
+        textcontainer.style.position="absolute";
+        textcontainer.style.width="430px";
+        textcontainer.style.height="270px";
+        textcontainer.style.top = "20%";
+        textcontainer.style.left = "10%";
+        textcontainer.style.padding="2%"
+        textcontainer.style.backgroundColor="transparent";
+
+
+        const welcomeText = document.createElement("h3");
+welcomeText.textContent = "WELCOME TO LAWN CARE";
+welcomeText.style.color = "#FFDD57";
+welcomeText.style.marginBottom = "10px";
+welcomeText.style.fontSize = "1.2rem";
+
+const mainText = document.createElement("h1");
+mainText.textContent = "Lawn care for everyone";
+mainText.style.fontSize = "3.7rem";
+mainText.style.margin = "10px 0px";
+mainText.style.color="#fff";
+mainText.style.fontWeight="800";
+
+const subText = document.createElement("p");
+subText.textContent = "Let us work on your yard";
+subText.style.fontSize = "1rem";
+subText.style.margin = "10px 0 20px";
+subText.style.color="darkgray";
+
+const button = document.createElement("button");
+button.textContent = "Learn more >";
+button.style.backgroundColor = "#5BA82E";
+button.style.color = "#FFF";
+button.style.border = "none";
+button.style.padding = "10px 20px";
+button.style.cursor = "pointer";
+button.style.fontSize = "1rem";
+
+const services=[
+    {
+        icon: "🌿" ,
+        title: "Garden Care",
+        description: "Seeking justice in the world is a sed significant emotional and investment when we follow this call."  
+     },
+     {
+        title: "Lawn mowing",
+        description: "Seeking justice in the world is a sed significant emotional and investment when we follow this call.",
+        icon: "🚜"
+    },
+    {
+        title: "Lawn care",
+        description: "Seeking justice in the world is a sed significant emotional and investment when we follow this call.",
+        icon: "🌱"
+    }
+];
+
+let cardcontainer=document.createElement('div');
+// cardcontainer.style.width="250px";
+// cardcontainer.style.height="400px";
+// cardcontainer.style.boxShadow="1px 1px 10px #ccc";
+cardcontainer.style.display="flex";
+cardcontainer.style.justifyContent="center";
+cardcontainer.style.gap="30px";
+
+let cards=document.createElement('div');
+
+
+
+
+
+textcontainer.appendChild(welcomeText);
+textcontainer.appendChild(mainText);
+textcontainer.appendChild(subText);
+textcontainer.appendChild(button);
+imgContainer.appendChild(textcontainer);
+
+        container.appendChild(nav);
+        // container.appendChild(logo);
+        container.appendChild(imgContainer);
+       
+
+
+    </script>
+</body>
+</html>

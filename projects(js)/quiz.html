@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .hero-container{
+            width: 100%;
+            min-height: 100vh;
+            background: url('https://image.freepik.com/free-vector/quiz-abstract-background_255524-114.jpg')no-repeat center ;
+            background-size: cover;
+            padding: 20px;
+            
+            
+        }
+         header{
+display: flex;
+align-items: center;
+justify-content: end;
+        }
+        header nav ul{
+            display: flex;
+            align-items: center;
+            /* justify-content: spa; */
+            gap:40px;
+            list-style-type: none;
+            padding: 20px;
+            margin-right: 50px;
+        }
+        header nav ul li a{
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+           justify-content: center;
+           flex-direction: column;
+        }
+        .start-quiz{
+            width: 500px;
+            min-height: 300px; 
+           text-align: center;
+           background-color: transparent;
+        }
+        .start-quiz h1{
+            margin-top: 5% ;
+            margin-bottom: 59%;
+            
+            -webkit-text-stroke-color: #b664ba;
+            -webkit-text-stroke-width: 2px;
+            color: transparent;            
+            font-size: 4.8rem;
+            font-weight: 700;
+        }
+        .start-quiz p{
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
+        }
+        .question-cards{
+            background:#004f6c;
+            background-size: cover;
+            padding-top: 50px;
+            min-height: 80vh;
+        }
+        .question-cards h1{
+            font-size: 1.5rem;
+            border: 2px solid #fff;
+            width: fit-content;
+            padding: 10px 20px;
+            color: #b664ba;
+        }
+        .question-cards .cards{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* flex-direction: column; */
+            gap: 20px;
+            width: 100%;
+            min-height: 70vh;
+        }
+        .question-cards .card1,.card2{
+            background-color: #fff;
+            /* flex: 1; */
+            width: 40%;
+            height: 300px;
+            padding: 20px;
+            border-radius: 20px;
+
+        }
+        .card1 h3,.card2 h3{
+            font-size: 1.5rem;
+        }
+        .card1 div,.card2 div{
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .cards button{
+          display: block;
+          margin: auto;
+          margin-top: 20px;
+          border: none;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: #b664ba;
+          font-size: 1rem;
+          color: #fff;
+          
+        }
+    </style>
+</head>
+<body>
+   
+    <script>
+        let quizdata =[
+      {
+        "_id": "653b50df1bc6527630cb9061",
+        "question": "What is the primary purpose of version control in software development?",
+        "answers": [
+          "Code execution",
+          "Code testing",
+          "Code collaboration",
+          "Code encryption"
+        ],
+        "correctAnswer": "Code collaboration",
+       
+      },
+      {
+        "_id": "653b857a51a640a11aa11bd2",
+        "question": "Which programming language is commonly used for server-side web ",
+        "answers": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Python"
+        ],
+        "correctAnswer": "Python",
+       
+      },
+      {
+        "_id": "653b85e951a640a11aa11bd5",
+        "question": "What does the 'M' stand for in the 'MVC' architectural pattern",
+        "answers": [
+          "Model",
+          "View",
+          "Controller",
+          "Markup"
+        ],
+        "correctAnswer": "Model",
+       
+      },
+      {
+        "_id": "653b861151a640a11aa11bd7",
+        "question": " Which database type is known for its ability to handle complex relationships and is suitable for graph-based data?",
+        "answers": [
+          "Relational Database",
+          "NoSQL Database",
+          "Document Database",
+          "Graph Database"
+        ],
+        "correctAnswer": "Graph Database",
+       
+      },
+      {
+        "_id": "653b867551a640a11aa11bd9",
+        "question": "What does the acronym 'HTTP' stand for in the context of web development?",
+        "answers": [
+          "Hyperlink Text Transfer Protocol",
+          "Hypertext Transmission Protocol",
+          "Hypertext Transfer Protocol",
+          "Hypertext Text Protocol"
+        ],
+        "correctAnswer": "Hypertext Transfer Protocol",
+       
+      },
+      {
+        "_id": "653b86b651a640a11aa11bdb",
+        "question": "Which of the following is NOT a commonly used front-end web development framework?",
+        "answers": [
+          "Angular",
+          "React",
+          "Django",
+          "Vue.js"
+        ],
+        "correctAnswer": "Django",
+       
+      }
+    ]
+
+
+
+    document.write(`<section class="hero-container">
+            <header>
+        <nav>
+         <ul>
+             <li><a href="#">home</a></li>
+             <li><a href="#">gift</a></li>
+             <li><a href="#">pages</a></li>
+         </ul>
+        </nav>     
+                </header>
+
+<section class="container">
+             <div class="start-quiz">
+                <h1>TECH </h1>
+                <p>"Smarty Pants Showdown"</p>
+             </div>
+</section>
+</section>
+
+        <section class="question-cards">
+            <center><h1>QUESTIONS</h1></center>
+             <form>
+           <div class="cards">
+              <div class="card1">
+            <h3>1)${quizdata[0].question}</h3>
+            <div><label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[0]}<br></label>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[1]}<br></label>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[2]}<br></label>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[0].answers[3]}<br></label>
+            <button>submit</button></div>
+            
+            </div>
+
+
+            <div class="card2">
+              <h3>2)${quizdata[1].question}</h3>
+           <div> <label for=""><input type="radio" name="" id=""> ${quizdata[1].answers[0]}<br>
+           <label for=""> <input type="radio" name="" id=""> ${quizdata[1].answers[1]}<br>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[1].answers[2]}<br>
+            <label for=""><input type="radio" name="" id=""> ${quizdata[1].answers[3]}<br>
+            <button>submit</button></div>
+            </div></form>
+            </div>
+             </section>
+
+            <section class="question-cards">
+           <div class="cards">
+            <div class="card1">
+            <h3>3)${quizdata[2].question}</h3>
+            <div><input type="radio" name="" id=""> ${quizdata[2].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[2].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[2].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[2].answers[3]}<br>
+            <button>submit</button></div>
+            
+            </div>
+
+
+            <div class="card2">
+              <h3>4)${quizdata[3].question}</h3>
+           <div> <input type="radio" name="" id=""> ${quizdata[3].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[3].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[3].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[3].answers[3]}<br>
+            <button>submit</button></div>
+            </div>
+            </div>
+             </section>
+
+              <section class="question-cards">
+           <div class="cards">
+            <div class="card1">
+            <h3>5)${quizdata[4].question}</h3>
+            <div><input type="radio" name="" id=""> ${quizdata[4].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[4].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[4].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[4].answers[3]}<br>
+            <button>submit</button></div>
+            
+            </div>
+
+
+            <div class="card2">
+              <h3>6)${quizdata[5].question}</h3>
+           <div> <input type="radio" name="" id=""> ${quizdata[5].answers[0]}<br>
+            <input type="radio" name="" id=""> ${quizdata[5].answers[1]}<br>
+            <input type="radio" name="" id=""> ${quizdata[5].answers[2]}<br>
+            <input type="radio" name="" id=""> ${quizdata[5].answers[3]}<br>
+            <button>submit</button></div>
+            </div>
+            </div>
+             </section>
+
+
+             </section>
+           
+        
+    `)
+    </script>
+</body>
+</html>

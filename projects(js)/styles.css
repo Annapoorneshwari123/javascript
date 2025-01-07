@@ -1,0 +1,105 @@
+// 1. Array of service details
+const services = [
+    {
+        title: "Garden Care",
+        description: "Seeking justice in the world is a sed significant emotional and investment when we follow this call.",
+        icon: "🌿" // You can replace with an image URL if needed
+    },
+    {
+        title: "Lawn mowing",
+        description: "Seeking justice in the world is a sed significant emotional and investment when we follow this call.",
+        icon: "🚜"
+    },
+    {
+        title: "Lawn care",
+        description: "Seeking justice in the world is a sed significant emotional and investment when we follow this call.",
+        icon: "🌱"
+    }
+];
+
+// 2. Create a container for the services
+const cardcontainer = document.createElement("div");
+cardcontainer.style.display = "flex";
+cardcontainer.style.justifyContent = "space-around";
+cardcontainer.style.padding = "20px";
+cardcontainer.style.gap = "20px";
+
+// 3. Loop through the services and create cards
+services.forEach(service => {
+    // Card container
+    const card = document.createElement("div");
+    card.style.border = "1px solid #eee";
+    card.style.borderRadius = "10px";
+    card.style.padding = "20px";
+    card.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+    card.style.textAlign = "center";
+    card.style.width = "250px";
+    card.style.background = "#FFF";
+
+    // Icon
+    const icon = document.createElement("div");
+    icon.textContent = `${services[0].icon}`;
+    icon.style.fontSize = "50px";
+    icon.style.marginBottom = "10px";
+
+    // Title
+    const title = document.createElement("h3");
+    title.textContent = `${services[0].title}`;
+    title.style.margin = "10px 0";
+    title.style.color = "#333";
+
+    // Description
+    const desc = document.createElement("p");
+    desc.textContent = `${services[0].description}`;
+    desc.style.color = "#777";
+    desc.style.fontSize = "14px";
+
+    // Append elements to card
+    card.appendChild(icon);
+    card.appendChild(title);
+    card.appendChild(desc);
+
+    // Append card to container
+    cardcontainer.appendChild(card);
+});
+
+
+
+// 4. Services Section Heading
+const servicesSection = document.createElement("div");
+servicesSection.style.padding = "20px";
+servicesSection.style.textAlign = "left";
+servicesSection.style.backgroundColor = "#f8f9fa";
+servicesSection.style.textAlign="center";
+servicesSection.style.border="3px solid green"
+
+const heading = document.createElement("h2");
+heading.textContent = "Lawn Services";
+heading.style.color = "darkgoldenrod";
+heading.style.fontSize="2rem";
+
+const subtext = document.createElement("p");
+subtext.textContent =
+    "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your.";
+subtext.style.color = "#777";
+subtext.style.fontSize = "14px";
+subtext.style.marginBottom = "20px";
+
+// Button
+const button1 = document.createElement("button");
+button1.textContent = "Get a Quote";
+button1.style.backgroundColor = "#5BA82E";
+button1.style.color = "#FFF";
+button1.style.border = "none";
+button1.style.padding = "10px 20px";
+button1.style.borderRadius = "5px";
+button1.style.cursor = "pointer";
+
+// Append to services section
+servicesSection.appendChild(heading);
+servicesSection.appendChild(subtext);
+servicesSection.appendChild(button1);
+
+// 5. Add everything to the document body
+document.body.appendChild(cardcontainer);
+document.body.appendChild(servicesSection);
