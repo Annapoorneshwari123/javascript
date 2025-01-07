@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <center>
+    <h1>d/f b/w const,var and let keywords</h1>
+    <p>if we declare any varible by using var or let keywords we can change that value anytime anyware but if declare any variable by using const keyword that variable value we can't change in entire code thats why we are calling const keyword variable are fixed values.</p>
+    <p>the js exceution will stop when we get error on any statement next lines will wont work.</p>
+   </center> 
+   <script>
+    var a=10;
+    document.write(`<h1>before changing a=${a}</h1>`)
+    //if i wat to change then a varible value we can change
+    a=30;
+   
+    document.write(`<h1>after changing a=${a}</h1>`)
+
+    //if i declare any variable using const keyword
+    const firstnumber=100;
+    document.write(`<h1>before changing first number=${firstnmber}</h1>`)
+    //when i change const keywrd value 
+    firstnumber=200
+    /*we will get an error as assignment to contant variable */
+    document.write(firstnumber);
+    console.log(a);
+    
+
+   </script>
+</body>
+</html>

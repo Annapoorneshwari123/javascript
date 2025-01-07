@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url('https://img.freepik.com/premium-photo/blue-grainy-gradient-background-soft-transitions-cover-pc-wallpapers-brands-social-media-horizontal_1050153-46377.jpg')no-repeat center;
+            background-size: cover;
+            height: 100vh;
+        }
+          *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+       }
+        form{
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #0d0d0d;
+        }
+        form input, form select{
+            padding: 6px;
+            font-size: 0.9rem;
+            width: 100%;
+            border: none;
+            outline: none;
+            border: 1px solid #ccc;
+            margin-top: 3px;
+            margin-bottom: 6px;
+            border-radius: 5px;
+        }
+        form button, .card a{
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            background-color: #b456bf;
+            color: #fff;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+        form button:hover{
+            opacity: 0.8;
+        }
+        #result{
+            padding: 30px;
+        }
+        #result .card{
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #1c1b1b;
+            margin: auto;
+        }
+        #result .card p{
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .card img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <form action="">
+            <label for="">Popular Festivals</label>
+            <select name="" id="festival">
+                <option value="" selected disabled>Select any festival</option>
+                <option value="Republic Day">Republic Day</option>
+                <option value="Holi">Holi</option>
+               <option value="Diwali">Diwali</option>
+               <option value="Dussehra">Dussehra</option>
+               <option value="Navratri">Navratri</option>
+               <option value="Krishna Janmashtami">Krishna Janmashtami</option>
+               <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
+               <option value="Gurpurab">Gurpurab</option>
+               <option value="Eid-Ul-Fitr">Eid-Ul-Fitr</option>
+               <option value="Bihu">Bihu</option>
+               <option value="Onam">Onam</option>
+               <option value="Christmas">Christmas</option>
+               <option value="Easter">Easter</option>
+               <option value="Baisakhi">Baisakhi</option>
+               <option value="Makar Sankranti">Makar Sankranti</option>
+               <option value="Maha Shivratri">Maha Shivratri</option>
+               <option value="Ratha Yatra ">Ratha Yatra </option>
+               <option value="Ugadi">Ugadi</option>
+            </select>
+            <span id="festival_error"></span>
+            <button type="button" onclick="FestivalChecker()">Know About this day</button>
+        </form>
+    </div>
+    <section id="result"></section>
+
+    <script>
+        let data = {
+            Republic_Day:{
+                date:'January 26',
+                day:'Friday',
+                about:"A republic is a state where the people's representatives hold political power, and the head of state is not a monarch. The term comes from the Latin phrase res publica, which means 'public affair'",
+                image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJTHe8fjjbTS34tvTnC1l5jJs8_kzxBYxcQ&s",
+                link:'https://en.wikipedia.org/wiki/Republic_Day_(India)'
+            },
+            Holi:{
+                date:'	March 25',
+                day:'Monday',
+                about:"Holi, also known as the Festival of Colors, is a Hindu festival that celebrates the arrival of spring, the triumph of good over evil, and the love between the deities Radha and Krishna.Also known as the festival of colours, Holi is one of the famous festivals of India, celebrated with a lot of fervour across the country. On the eve of Holi, people make huge Holika bonfires and sing and dance around it. On the day of Holi, the famous festival of Indian states, people gather in open areas and apply dry and wet colors of multiple hues to each other, with some carrying water guns and colored water-filled balloons. It tops the charts of 10 famous festivals in India as it is celebrated all across the world with happiness.",
+                image:"https://www.hindustantimes.com/ht-img/img/2024/03/20/1600x900/98fe5d5c96f16f61ff_1710922427406_1710922427664.jpg",
+                link:'https://en.wikipedia.org/wiki/Holi'
+            },
+            Diwali:{
+                date:' November 1',
+                day:'Thursday',
+                about:'Diwali, one of the most prominent Hindu festivals of India, is celebrated with a lot of pomp and show. During this festival of lights, houses are decorated with clay lamps, candles, and Ashok leaves. People wear new clothes, participate in family puja, burst crackers, and share sweets with friends, families, and neighbours. It is the most popular festival in India.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/11/diwali.jpg',
+                link:'https://en.wikipedia.org/wiki/Diwali'
+            },
+            Dussehra:{
+                date:' October 12',
+                day:'Saturday',
+                about:'Dussehra, also referred to as Vijayadashami, is also among the most famous festivals of India in Hindu religion. It is celebrated in different forms of countrywide. Ramlila (enactment of scenes from Ramayana) is held everywhere for 10 days. It’s culminated with “Ravan Dahan” – the burning of huge effigies of Ravana, Meghnath, and Kumbhkaran which is a real spectacle to see. While in Mysore, a colorful procession is taken out, in Kullu it is celebrated for 10 days welcoming their mountain deities in the valley. The Mysore Palace is lit like a bride and the atmosphere is filed with the music of drums. It is a spectacle to not miss on your trip to the city of royals. It is one of the most religious festivals of India. ',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/11/dussehra-e1446636060943.jpg',
+                link:'https://en.wikipedia.org/wiki/Vijayadashami'
+            },
+            Navratri:{
+                date:' October 9-13',
+                day:'-',
+                about:'Navratri is one of the most important festivals of India. This festival is celebrated by all people throughout India in different ways. In Gujarat, it is a nine-day celebration of rejuvenating Garba nights and highly energetic Dandiya Raas dances. People are dressed in beautiful, colorful traditional clothes and the environment is very youthful and invigorating. Fasting is a famous tradition of Hindu religion and is associated with a scientific fact. Whenever there is a change in season, one should fast to give rest to their digestive system and boost their immunity for the next season. ',
+                image:'https://th.bing.com/th/id/OIP.4i-r9QB6FvSLvHua5OF0JgHaFj?w=241&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7',
+                link:'https://en.wikipedia.org/wiki/Navaratri'
+            },
+           Krishna_Janmashtami:{
+            date:' August 26',
+                day:'Monday',
+                about:'Janmashtami is again a beautiful one among the most important religious festivals of India. Janmashtami celebrations in Mathura and Vrindavan are very popular. People fast throughout the day and break it with a special meal after dusk which makes it one of the important in the list of festivals of India. Visiting temples, praying, dancing, and singing bhajans (hymns) at midnight is a part of the celebrations of the birth of Lord Krishna. Often, small children dress up like Lord Krishna on this day. Images and picturization of Krishna’s life story are depicted in the “jhankis” in temples. It is one of the popular festivals of India. ',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/11/Janmashtami.jpg',
+                link:'https://en.wikipedia.org/wiki/Krishna_Janmashtami'
+           },
+           Ganesha_Chaturthi:{
+            date:' September 6-7',
+                day:'-',
+                about:'Ganesh Chaturthi, another one of the important Hindu religious festivals of India , is a 10-day affair of colorful festivities. Huge handcrafted Ganesh idols are installed in homes or outdoors, in public pandals. Pujas are performed in the morning and the evening. The last day is the day of Visarjan – immersion of an idol in a water body. Cultural activities of singing, dancing, and theater, and free medical and blood donation camps are held.',
+                image:'https://th.bing.com/th/id/OIP.CStqsshgl7krzA-6OqoleAHaHa?rs=1&pid=ImgDetMain',
+                link:'https://en.wikipedia.org/wiki/Ganesh_Chaturthi'
+           },
+           Gurpurab:{
+            date:' November 15',
+                day:'Friday',
+                about:'One of the most important Sikh festivals of India, special assemblies on the lives and teachings of the gurus, and langars (community meals) are organized in the gurudwaras. Karah Prasad is distributed among all, and hymn chanting processions are held in the city. People light up their homes with lamps and candles and burst crackers to celebrate Gurpurab.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/11/gurupurab.jpg',
+                link:'https://en.wikipedia.org/wiki/Gurpurab'
+           },
+           Eid_ul_Fitr:{
+            date:'April 10-11',
+                day:'Wednesday – Thursday',
+                about:'Eid is one of the major festivals of India for the Muslim community. People dress up in fineries, attend a special community prayer in the morning, visit friends, and relatives and exchange sweets. Children are given idi (money or gift) by elders.',
+                image:'https://assets.traveltriangle.com/blo6g/wp-content/uploads/2015/11/eid.jpg',
+                link:'https://en.wikipedia.org/wiki/Eid_al-Fitr'
+           },
+           Bihu:{
+            date:'April 14-20',
+                day:'Saturday – Sunday',
+                about:'Popular among the festivals of India celebrated in the North East, Bihu is the harvest festival of Assam. During the month-long celebrations, young men and women wear their traditional clothes and perform the Bihu dance in the village fields and courtyards. During Bihu celebrations in India, a community feast is held with a lot of fanfare.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/11/bihu-festival.jpg',
+                link:'https://en.wikipedia.org/wiki/Bihu'
+           },
+           Onam:{
+            date:'September 6-15',
+                day:'Friday – Sunday',
+                about:'Onam is among the important national festivals of India, wherein people wear traditional wear, adorn houses with Pookalam (floral designs), and prepare Onasadya (elaborate meal of about 13 dishes). Events such as Vallamkali (snake boat race), Kaikottikali (clap dance), Kathakali dance, and Pulikali procession (artists dressed and painted like tigers and hunters) are held.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/11/onam.jpg',
+                link:'https://en.wikipedia.org/wiki/Onam'
+           },
+           Christmas:{
+            date:'December 25',
+                day:'Wednesday',
+                about:'One of the most famous and awaited festivals in India and the world, Christmas happens to be of sheer significance for elders and children alike. Everyone regardless of their religion wait for this day, children specifically for the surprise gifts from Santa. All the churches are lit up and decorated to celebrate the birth of Lord Jesus.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/christmas-tree-and-firplace.jpg',
+                link:'https://en.wikipedia.org/wiki/Christmas'
+           },
+           Easter:{
+            date:'March 31',
+                day:'Sunday',
+                about:'Just like other festivals in India and the world, Easter is also celebrated with much fervour and great religious solemnization in different parts of the country. Celebrated during Spring, Easter celebrations in India are distinguished by various colourful decorations, dance and plays, simmel and plum cakes, and bright lanterns adorning the streets.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2017/12/easter-celebrations-in-india.jpg',
+                link:'https://en.wikipedia.org/wiki/Easter'
+           },
+           Baisakhi:{
+            date:' April 14',
+                day:'Friday',
+                about:'Baisakhi, one of the famous festivals of India is celebrated by the Sikh community of Punjab and those around the world. It celebrates the welcoming of the harvest season for the rabi crops. The Sikhs celebrate this festival with a lot of excitement and enthusiasm by performing local folk dances such as Giddha and Bhangra. The festival is of great religious significance in India as it marks the day when the tenth Guru of Sikhs, Guru Gobind Singh, laid out the foundation stone for the Panth Khalsa-the Order back in 1699.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2017/12/baisakhi-festival-of-india.jpg',
+                link:'https://en.wikipedia.org/wiki/Baisakhi'
+           },
+           Makar_Sankranti:{
+            date:' January 15',
+                day:'Monday',
+                about:'Makar Sankranti is the real new year of North Indians and Sikhs which is celebrated just one day after Lohri. On this day, worship to God is performed to seek his blessings for the new year. It is in a way the end of winter and the beginning of spring which means the agricultural cycle for farmers. The dates are set according to solar cycles, unlike other Hindu festivals where dates are decided by lunar cycles. People celebrate this day by flying kites and having savory ‘Bajre ki khichdi’ and sweet ’til ladoo’. Gujaratis celebrate this festival by the name of Uttarayan.',
+                image:'https://assets.traveltriangle.com/blog/wp-content/uploads/2018/08/2013_Makar_Sankranti_Modhera_Sun_temple_Kite_Mahotsav.jpg',
+                link:'https://en.wikipedia.org/wiki/Makar_Sankranti'
+           },
+           Maha_Shivratri:{
+            date:' March 8-9',
+                day:'Friday',
+                about:'Dedicated to Lord Shiva, this Indian festival holds great reverence among the devotees of Lord Shiva. It has a huge significance in Hindu mythology celebrated on the 14th day of the dark fortnight in the month of Phalgun. It is believed that whoever worships Lord Shiva on this day attains salvation and redemption from their sins. It is also among the most crucial festivals of India for unmarried and married women to attain marital bliss.',
+                image:'https://static.india.com/wp-content/uploads/2022/12/maha-shivratri-2023-date-and-time.jpg',
+                link:'https://en.wikipedia.org/wiki/Maha_Shivratri'
+           }
+          
+
+        }
+
+        let selectedFestival = document.getElementById('festival');
+        let result = document.getElementById('result');
+        let festival_error = document.getElementById('festival_error');
+
+        function FestivalChecker(){
+            if(selectedFestival.value == ""){
+                festival_error.innerHTML = '<span style="color:red">Please select any festival</span>'
+            }else{
+                festival_error.innerHTML = ''
+                // alert(selectedFestival.value)
+                switch (selectedFestival.value) {
+                    case 'Republic Day':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Republic_Day.image} alt="image">
+                                <p>Festival Date: ${data.Republic_Day.date}</p>
+                                <p>Festival day: ${data.Republic_Day.day}</p>
+                                <p>${data.Republic_Day.about}</p>
+                                <a href=${data.Republic_Day.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Holi':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Holi.image} alt="image">
+                                <p>Festival Date: ${data.Holi.date}</p>
+                                <p>Festival day: ${data.Holi.day}</p>
+                                <p>${data.Holi.about}</p>
+                                <a href=${data.Holi.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Diwali':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Diwali.image} alt="image">
+                                <p>Festival Date: ${data.Diwali.date}</p>
+                                <p>Festival day: ${data.Diwali.day}</p>
+                                <p>${data.Diwali.about}</p>
+                                <a href=${data.Diwali.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Dussehra':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Dussehra.image} alt="image">
+                                <p>Festival Date: ${data.Dussehra.date}</p>
+                                <p>Festival day: ${data.Dussehra.day}</p>
+                                <p>${data.Dussehra.about}</p>
+                                <a href=${data.Dussehra.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Navratri':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Navratri.image} alt="image">
+                                 <p>Festival Date: ${data.Navratri.date}</p>
+                                <p>Festival day: ${data.Navratri.day}</p>
+                                <p>${data.Navratri.about}</p>
+                                <a href=${data.Navratri.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Krishna Janmashtami':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Krishna_Janmashtami.image} alt="image">
+                                <p>Festival Date: ${data.Krishna_Janmashtami.date}</p>
+                                <p>Festival day: ${data.Krishna_Janmashtami.day}</p>
+                                <p>${data.Krishna_Janmashtami.about}</p>
+                                <a href=${data.Krishna_Janmashtami.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Ganesh Chaturthi':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Ganesha_Chaturthi.image} alt="image">
+                                <p>Festival Date: ${data.Ganesha_Chaturthi.date}</p>
+                                <p>Festival day: ${data.Ganesha_Chaturthi.day}</p>
+                                <p>${data.Ganesha_Chaturthi.about}</p>
+                                <a href=${data.Ganesha_Chaturthi.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Gurpurab':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Gurpurab.image} alt="image">
+                                <p>Festival date: ${data.Gurpurab.date}</p>
+
+                                <p>Festival day: ${data.Gurpurab.day}</p>
+                                <p>${data.Gurpurab.about}</p>
+                                <a href=${data.Gurpurab.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Eid-Ul-Fitr':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data. Eid_ul_Fitr.image} alt="image">
+                                <p>Festival date: ${data. Eid_ul_Fitr.date}</p>
+
+                                <p>Festival day: ${data. Eid_ul_Fitr.day}</p>
+                                <p>${data. Eid_ul_Fitr.about}</p>
+                                <a href=${data. Eid_ul_Fitr.link} target="_blank">Know more</a>
+                                </div>
+                        `
+                        break;
+                        case 'Bihu':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Bihu.image} alt="image">
+                                <p>Festival date: ${data.Bihu.date}</p>
+
+                                <p>Festival day: ${data.Bihu.day}</p>
+                                <p>${data.Bihu.about}</p>
+                                <a href=${data.Bihu.link} target="_blank">Know more</a>
+                        `
+                        break;
+                        case 'Onam':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Onam.image} alt="image">
+                                <p>Festival date: ${data.Onam.date}</p>
+
+                                <p>Festival day: ${data.Onam.day}</p>
+                                <p>${data.Onam.about}</p>
+                                <a href=${data.Onam.link} target="_blank">Know more</a>
+                        `
+                        break;
+                        case 'Christmas':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Christmas.image} alt="image">
+                                <p>Festival day: ${data.Christmas.date}</p>
+                                <p>Festival day: ${data.Christmas.day}</p>
+                                <p>${data.Christmas.about}</p>
+                                <a href=${data.Christmas.link} target="_blank">Know more</a>
+                        `
+                        break;
+
+                        case 'Easter':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Easter.image} alt="image">
+                                <p>Festival date: ${data.Easter.date}</p>
+
+                                <p>Festival day: ${data.Easter.day}</p>
+                                <p>${data.Easter.about}</p>
+                                <a href=${data.Easter.link} target="_blank">Know more</a>
+                        `
+                        break;
+                        case 'Baisakhi':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Baisakhi.image} alt="image">
+                                <p>Festival date: ${data.Baisakhi.date}</p>
+
+                                <p>Festival day: ${data.Baisakhi.day}</p>
+                                <p>${data.Baisakhi.about}</p>
+                                <a href=${data.Baisakhi.link} target="_blank">Know more</a>
+                        `
+                        break;
+                        case 'Makar Sankranti':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Makar_Sankranti.image} alt="image">
+                                <p>Festival date: ${data.Makar_Sankranti.date}</p>
+                                <p>Festival day: ${data.Makar_Sankranti.day}</p>
+                                <p>${data.Makar_Sankranti.about}</p>
+                                <a href=${data.Makar_Sankranti.link} target="_blank">Know more</a>
+                        `
+                        break;
+                        case 'Maha Shivratri':
+                        result.innerHTML = `
+                            <div class="card">
+                                <img src=${data.Maha_Shivratri.image} alt="image">
+                                <p>Festival date: ${data.Maha_Shivratri.date}</p>
+                                <p>Festival day: ${data.Maha_Shivratri.day}</p>
+                                <p>${data.Maha_Shivratri.about}</p>
+                                <a href=${data.Maha_Shivratri.link} target="_blank">Know more</a>
+                        `
+                        break;
+                    default:
+                    result.innerHTML = `
+                            <div class="card">
+                                <img src='https://medihelp24.com/public/assets/img/no_data.gif' alt="image">
+                               
+                                </div>
+                        `
+
+                        break;
+                }
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

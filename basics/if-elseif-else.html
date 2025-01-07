@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <h2>if else ladder statement</h2>
+</center>
+
+<script>
+    let marks=prompt("enter your marks:");
+    console.log(marks);
+    
+
+    if(marks>0 && marks<35){
+        document.write(`<h1>fail</h1>`);
+    }else if(marks>=35 && marks<=50){
+        document.write(`<h1>second class</h1>`);
+    }else if(marks>50 && marks<=75){
+        document.write(`<h1>first class</h1>`);
+
+    }else if(marks>75 && marks<=100){
+        document.write(`<h1>good A+</h1>`);
+
+    }else{
+        document.write(`<h1> please enter valid marks</h1>`);
+
+    }
+
+
+
+    let score=prompt('enter your score(0-100):');
+    
+
+    if(score>=90 && score<=100){
+        grade="A";
+    }else if(score>=70 && score<=89){
+        grade="B";
+    }else if(score>=60 && score<=69){
+        grade="C";
+    }else if(score>=50 && score<=59){
+        grade="D";
+    }else if(score>=0 && score<=49){
+        grade="F";
+    }
+    console.log(grade);
+    
+</script>
+</body>
+</html>

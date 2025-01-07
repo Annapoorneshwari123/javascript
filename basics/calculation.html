@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        form input, form select{
+            padding: 6px;
+            font-size: 0.9rem;
+            width: 100%;
+            border: none;
+            outline: none;
+            border: 1px solid #ccc;
+            margin-top: 3px;
+            margin-bottom: 6px;
+            border-radius: 5px;
+        }
+        form button{
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            background-color: #3014e6;
+            color: #fff;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover{
+            opacity: 0.8;
+        }
+        #result{
+            padding: 10px;
+            background-color: #fad24038;
+            color: #d5a506;
+            border: 1px solid #e6b514;
+            margin-top: 10px;
+        } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div>
+                <label for="firstnumber">first number</label>
+                <input type="number" placeholder="Enter first number" id="firstnumber">
+                <span id="firstnumber_error"></span>
+            </div>
+            <label for="">operator</label>
+            <select name="operation" id="operator">
+                <option value="" selected disabled>Please select operation</option>
+                <option value="addition">Addition</option>
+                <option value="subtraction">subtraction</option>
+                <option value="multiplication">multiplication</option>
+                <option value="division">division</option>
+            </select>
+            <span id="operator_error"></span>
+            <div>
+                <label for="secondnumber">second number</label>
+                <input type="number" placeholder="Enter second number" id="secondnumber">
+                <span id="secondnumber_error"></span>
+            </div>
+
+            <label for="">Result</label>
+            <div id="result"></div>
+            <button type="button" onclick="checkHandler()">Check</button>
+        </form>
+    </div>
+
+
+
+    <script>
+        //get all input value for calculation
+        let firstnumber=document.getElementById('firstnumber');
+        let secondnumber=document.getElementById('secondnumber');
+        let operator=document.getElementById('operator');
+
+        let firstnumber_error=document.getElementById('firstnumber_error');
+        let secondnumber_error=document.getElementById('secondnumber_error');
+        let operator_error=document.getElementById('operator_error');
+
+        let result=document.getElementById('result');
+
+        function checkHandler(){
+            if(firstnumber.value==''){
+                firstnumber_error.innerHTML='<span style="color:red">please fill the field</span>'
+            }else{
+                firstnumber_error.innerHTML='<span style="color:green">valid number</span>'
+            }
+
+            if(secondnumber.value==''){
+                secondnumber_error.innerHTML='<span style="color:red">please fill the field</span>'
+            }else{
+                secondnumber_error.innerHTML='<span style="color:green">valid number</span>'
+            }
+
+            if(operator.value==''){
+                operator.innerHTML='<span style="color:red">please select the operation</span>'
+            }else{
+                operator.innerHTML='<span style="color:green">valid operation</span>'
+            }
+
+
+            if(firstnumber.value!="" && secondnumber.value!="" && operator.value!=""){
+                switch(operator.value){
+                    case "addition":
+                        result.innerHTML=`<span>${Number(firstnumber.value)+Number(secondnumber.value)}</span>`;
+                        break;
+                    case "subtraction":
+                        result.innerHTML=`<span>${Number(firstnumber.value)- Number(secondnumber.value)}</span>`;
+                        break;
+                    case "multiplication":
+                        result.innerHTML=`<span>${Number(firstnumber.value)* Number(secondnumber.value)}</span>`;
+                        break;
+                    case "division":
+                        result.innerHTML=`<span>${Number(firstnumber.value)/ Number(secondnumber.value)}</span>`;
+                        break;
+                    default:
+                        result.innerHTML=`<span color="color:red">operator not valid</span>`;
+                        break;
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>

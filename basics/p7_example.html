@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hero-container{
+            height: 90vh;
+            background:linear-gradient(75deg,#56789a,#c5c1b8);
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+        }
+         .result{
+            width: 300px;
+            height: 50px;
+            border: none;
+            border-radius: 20px;
+            margin: auto;
+            padding: 20px;
+            color: rgb(163, 190, 226);
+            /* background-color: rgb(215, 217, 219); */
+            background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/tp244-bg4-05b_2-kuq8r4ai.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=9b15318f84778a37971a841aa4e8596c')no-repeat center;
+            background-size: cover;
+            /* box-shadow: 5px 5px 10px #0c0c0c; */
+            /* display: flex;
+            align-items: center;
+            gap: 20px; */
+        }
+        .one{
+            align-self: start;
+        }
+        .two{
+            align-self: center;
+        }
+        .four{
+            align-self: center;
+        }
+        .five{
+            align-self: start;
+        }
+        dialog button{
+            border: none;
+            background-color: transparent;
+            padding: 20px;
+        } 
+        .first ,.first1,.first2,.first3,.first4{
+            border: none;
+            padding: 20px 35px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            background-color: transparent;
+            color: #fff;
+            border-radius: 100px;
+            outline: none;
+            border: 2px solid #fff;
+         }
+         .first1{
+            background-color: transparent;
+         }
+         .first2{
+            background-color: transparent;
+         }
+         .first3{
+            background-color: transparent;
+         }
+         .first4{
+            background-color: transparent;
+         }
+
+    </style>
+</head>
+<body>
+   <section class="hero-container">
+    <div class="one">
+        <button onclick=showDialog() class="first">sum</button>
+    <dialog id="total">  
+        <button onclick="hideDialog()" class="second">&#10539;</button>   
+            <h3 id="sum" class="result"></h3>
+    </dialog>
+    </div>
+
+<br>
+    <div class="two">
+        <button onclick=showDialog1() class="first1">Difference</button>
+        <dialog id="total1">  
+            <button onclick="hideDialog()" class="second">&#10539;</button>   
+                <h3 id="difference" class="result"></h3>
+        </dialog>
+    </div>
+<br>
+    <div class="three">
+        <button onclick=showDialog2() class="first2">Product</button>
+    <dialog id="total2">  
+        <button onclick="hideDialog()" class="second">&#10539;</button>   
+            <h3 id="product" class="result"></h3>
+    </dialog>
+    </div>
+<br>
+    <div class="four">
+        <button onclick=showDialog3() class="first3">Divide</button>
+    <dialog id="total3">  
+        <button onclick="hideDialog()" class="second">&#10539;</button>   
+            <h3 id="divide" class="result"></h3>
+    </dialog>
+    </div>
+<br>
+    <div class="five">
+        <button onclick=showDialog4() class="first4">Modulas</button>
+    <dialog id="total4">  
+        <button onclick="hideDialog()" class="second">&#10539;</button>   
+            <h3 id="modulas" class="result"></h3>
+    </dialog>
+    </div>
+   </section>
+            
+       
+    
+    <script>
+         let num1=100;
+        let num2=500;
+        let sum =num1+num2;
+        let difference =num1-num2;
+        let product=num1*num2;
+        let division =num1/num2;
+        let modulas=num1%num2;
+        // console.log(`${sum}`);
+        // console.log(`${difference}`);
+        
+        
+let total =document.getElementById('total');
+function showDialog(){
+            // document.write(`<div><h3>The sum of two numbers is ${sum}</h3></div>`);
+            let sumelement =document.getElementById("sum");
+            let sentence=`The sum of ${num1} and ${num2} is ${sum}.`;
+            sumelement.textContent=sentence;
+
+           total.show();
+}
+     function hideDialog(){
+        total.close()
+    }
+
+
+        
+    let total1=document.getElementById('total1');
+    function showDialog1(){
+        let diffelement =document.getElementById("difference");
+            let sentence=`The difference of ${num1} and ${num2} is ${difference}.`;
+            diffelement.textContent=sentence;
+            total1.show()
+    }
+    function hideDialog(){
+        total1.close()
+    }
+
+    let total2=document.getElementById('total2');
+    function showDialog2(){
+        let prodelement =document.getElementById("product");
+            let sentence=`The Product of ${num1} and ${num2} is ${product}.`;
+            prodelement.textContent=sentence;
+            total2.show()
+    }
+    function hideDialog(){
+        total2.close()
+    }
+
+    
+    let total3=document.getElementById('total3');
+    function showDialog3(){
+        let divideelement =document.getElementById("divide");
+            let sentence=`The division of ${num1} and ${num2} is ${division}.`;
+            divideelement.textContent=sentence;
+            total3.show()
+    }
+    function hideDialog(){
+        total3.close()
+    }
+
+    let total4=document.getElementById('total4');
+    function showDialog4(){
+        let modelement =document.getElementById("modulas");
+            let sentence=`The modulas of ${num1} and ${num2} is ${modulas}.`;
+            modelement.textContent=sentence;
+            total4.show()
+    }
+    function hideDialog(){
+        total4.close()
+    }
+       
+       
+    </script>
+</body>
+</html>

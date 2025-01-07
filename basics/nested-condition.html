@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number=prompt('please enter a number');  //getting value from the user
+
+        //parent condition
+
+        if(number<=20){
+            //nested condition
+            if(number==5){
+                document.write('<h1>given number 5</h1>')
+            }else if(number==10){
+                document.write('<h1>given number 10</h1>')
+
+            }else{
+                document.write(`<h1>entered number is not 10 and 5 also then it is ${number}</h1>`)
+
+            }
+        }else{
+            if(number>20 && number<=30){
+                document.write(`<h1 style="color:green">entered number is ${number}</h1>`)
+            }else{
+                document.write(`<h1 style="color:red">please enter a number below 20 or 30 </h1>`)
+
+            }
+        }
+
+    </script>
+</body>
+</html>

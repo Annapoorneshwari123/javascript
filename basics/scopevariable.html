@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <h1>variable scopes</h1>
+<p>1)global scope-defines outside the  block</p>
+<p>2)local scope-defines inside the  block</p>
+</center>
+<hr>
+
+<script>
+    // internal 
+    var a=20;
+    document.write(`<h1>variable a value =${a}</h1>`);
+
+    var b=33;
+    document.write(`<h3>variable b value is ${b}</h3>`);
+
+    var c=100;
+    document.write(`<h1>the value of c variable is <br> ${c}</h1><hr>`)
+    document.write('<h1>1<hr><br>2</h1>'+c)
+
+//     let globalVariable = "I'm a global variable";
+
+// function myFunction() {
+//   let localVariable = "I'm a local variable";
+//   console.log(localVariable); // Accessing the local variable
+
+//   // globalVariable is also accessible here
+//   console.log(globalVariable);
+// }
+
+// myFunction(); // Output: "I'm a local variable", "I'm a global variable"
+
+// console.log(globalVariable); // Output: "I'm a global variable"
+// console.log(localVariable); // Error: localVariable is not defined
+   
+</script>
+</body>
+</html>
