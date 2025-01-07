@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            padding: 4%;
+            background-color: lightblue;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .container .card{
+            padding: 20px;
+            background-color: #fff;
+        }
+        .container .card img{
+            width: 100%;
+        }
+        .card button{
+            width: 100%;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            border: none;
+            background-color: rgb(9,82,146);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        var card=`
+        <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.7cRYFyLoDEDh4sRtM73vvwHaDg?rs=1&pid=ImgDetMain" alt="">
+        <h2>nature images</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta velit deleniti, eum exercitationem praesentium ratione in, saepe doloribus blanditiis possimus et cupiditate ipsa illum vitae! Et fuga veniam maiores iste.</p>
+        <button>create account</button>
+    </div> 
+        `
+
+        document.write(`
+        <section class="container">
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+           ${card}
+        `)
+    </script>
+</body>
+</html>
