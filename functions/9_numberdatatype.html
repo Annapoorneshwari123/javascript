@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let string1="123";
+    console.log("str1 value=",string1);
+    console.log("type is=",typeof(string1));//string
+
+    //example
+    let output1=Number(string1);//number("123")=123
+    console.log("output1 value=",output1);//123
+    console.log("type is=",typeof(output1));//number
+
+    //examples
+    console.log(Number("123"));//123
+    console.log(Number("123.44"));//123.44
+    console.log(Number(true));//1
+    console.log(Number(false));//0
+    console.log(Number(123e-2));//1.23
+    console.log(Number("apple"));//NaN
+    console.log(Number(undefined));//NaN
+    console.log(Number(null));//0
+    console.log(Number("hello world"));//NaN
+    console.log(Number("true"));//NaN
+    console.log(Number("145.897"));//145.897
+
+
+   </script> 
+</body>
+</html>

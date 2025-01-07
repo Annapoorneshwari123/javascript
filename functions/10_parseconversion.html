@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x="123",y="12445.69007433",z="apple";
+
+        console.log("parseInt=",parseInt(x));//123 returns only the number
+        console.log("parsefloat=",parseFloat(x));//123  convert and returns float datatype
+        console.log("number=",Number(x));//123.76789 it returns both he number and floatin value
+
+
+        console.log("parseInt=",parseInt(y));//123 returns only the number
+        console.log("parsefloat=",parseFloat(y));//123  convert and returns float datatype
+        console.log("number=",Number(y));//123.76789 it returns both he number and floatin value
+
+let decimalnumber=12345.864790987;
+document.write(`<h1>deciamlnumber=${decimalnumber}</h1>`)
+document.write(`<h1>deciamlnumber=${decimalnumber.toFixed()}</h1>`);
+
+console.log("fixed decimal points=",decimalnumber.toFixed());//12346
+console.log("fixed decimal points=",decimalnumber.toFixed(1));//12345.9
+console.log("fixed decimal points=",decimalnumber.toFixed(2));//12345.86
+console.log("fixed decimal points=",decimalnumber.toFixed(5));//12345.86
+
+
+    </script>
+</body>
+</html>

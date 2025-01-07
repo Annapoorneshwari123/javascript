@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>converting string datatype</h1>
+    </center>
+
+    <script>
+        let number=124;//number datatype
+        console.log(number);
+        console.log(typeof(number));//number
+       
+       // converting to String
+        let str=String(number);//"124" by using string constructor we can convert to string datatype
+        console.log(str);
+        console.log(typeof(str));//string
+
+        //converting boolean datatypes to string
+        const isadmin=true;
+        console.log("isadmin value=",isadmin);
+        console.log("datatype is=",typeof(isadmin));//boolean
+
+        let output1=String(isadmin);
+        console.log("output1 value=",output1);//"true"
+        console.log("typeof value=",typeof(output1));//string
+
+        //floating numbers to string
+        
+        let x=123.567;
+        console.log("x value=",x);
+        console.log("x datatype value=",typeof(x));
+
+        let output2=String(x);
+        console.log("output2 value=",output2);//"true"
+        console.log("typeof value=",typeof(output2));//string
+
+        console.log(String(123));//"123"
+        console.log(String(123+5));//string(128)="128"
+        console.log(String(true));//"true"
+        console.log(typeof(String(true)));//string
+        console.log(String(false));//"false"
+        console.log(String(123e-2));//"12.3"
+        console.log(String(undefined));//"undefined"
+        console.log(String(undefined)[0]);//"u"
+        console.log(String(null));//"null"
+        console.log(String(null)[1].toUpperCase());//"l"
+
+
+        
+    </script>
+</body>
+</html>
