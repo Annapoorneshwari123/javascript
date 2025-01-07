@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Mouse Event Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    }
+    .container {
+      text-align: center;
+    }
+    .box {
+      width: 250px;
+      height: 250px;
+      background-image: url('');
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #3498db;
+      border-radius: 15px;
+      transition: transform 0.3s, border-color 0.3s;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .box:hover {
+      transform: scale(1.05);
+    }
+    .log {
+      width: 90%;
+      max-width: 600px;
+      max-height: 200px;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .log p {
+      margin: 5px 0;
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #3498db;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="box"></div>
+    <button id="clearLog">Clear Log</button>
+    <div class="log" id="log"></div>
+  </div>
+
+  <script>
+    const box = document.getElementById('box');
+    const log = document.getElementById('log');
+    const clearLogButton = document.getElementById('clearLog');
+
+    // Log message function
+    const logMessage = (message) => {
+      const p = document.createElement('p');
+      p.textContent = message;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+    };
+
+    // Mouse event listeners
+    box.addEventListener('mouseenter', () => {
+      box.style.borderColor = '#2ecc71';
+      logMessage('Mouse entered the box.');
+    });
+
+    box.addEventListener('mouseleave', () => {
+      box.style.borderColor = '#3498db';
+      logMessage('Mouse left the box.');
+    });
+
+    box.addEventListener('mousedown', () => {
+      box.style.transform = 'scale(0.95)';
+      logMessage('Mouse button pressed.');
+    });
+
+    box.addEventListener('mouseup', () => {
+      box.style.transform = 'scale(1)';
+      logMessage('Mouse button released.');
+    });
+
+    box.addEventListener('click', () => {
+      logMessage('Box clicked.');
+    });
+
+    box.addEventListener('dblclick', () => {
+      box.style.borderColor = '#e74c3c';
+      logMessage('Box double-clicked.');
+    });
+
+    box.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      box.style.borderColor = '#f1c40f';
+      logMessage('Right-clicked on the box.');
+    });
+
+    // Clear log functionality
+    clearLogButton.addEventListener('click', () => {
+      log.innerHTML = '';
+      logMessage('Log cleared.');
+    });
+  </script>
+</body>
+</html>

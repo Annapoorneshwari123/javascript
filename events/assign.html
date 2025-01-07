@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 5px;
+            margin:0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #exam{
+            min-height: 100vh;
+            background-color: ;
+        }
+        #exam h1{
+            text-align: center;
+        }
+        .container{
+            min-height: 100vh;
+            display: flex;
+        }
+        form{
+           flex: 1;
+             
+            padding: 20px;   
+        }
+        form label{
+            display: flex;
+            align-items: center;
+            margin:10px 0px;
+           font-size: 1.2rem;
+        }
+        #messages textarea{
+            width: 100%;
+            height: 70vh;
+            outline: none;
+        }
+        #messages{
+            flex:1;
+            /* background-color: #383636; */
+            border-radius: 10px;
+        }
+         header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #00000056;
+            color: #c2bdbd;
+        }
+        header button{
+            border: none;
+            outline: none;
+            padding: 7px 20px;
+            text-transform: capitalize;
+            background-color: #0c0c0caf;
+            color: #fff;
+        }
+        header button:hover{
+            background-color: transparent;
+            border: 1px solid #000;
+            border-radius: 100px;
+            color: #fff;
+        }
+        .submiting button{
+            width: 60%;
+            margin-left: 10%;
+            margin-top: 40px;
+            border: none;
+            outline: none;
+            padding: 7px 20px;
+            background-color: #3f20ddaf;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+        }
+        #messages p{
+            color: red;
+        }
+        </style>
+</head>
+<body>
+    <section id="exam">
+        <h1 style="font-size: 1.8rem;background-color: green;">CODING TEST</h1>
+        <div class="container">
+            <form action="" id="question" oncut="cuthandler()" oncopy="copyhandler()" onpaste="pastehandler()">
+                <h1 style="text-align: left;">PROBLEM:</h1>
+                <label for="">1) WAP to the number is palindrome or not</label><br>
+                <p>Example 1: <br>
+
+                    Input: x = 121
+                    Output: true
+                    Explanation: 121 reads as 121 from left to right and from right to left.</p>
+<p>Constraints:
+   <br><br>
+
+    1) -231 <= x <= 231 - 1</p>
+               <div class="submiting" id="submitbtn">
+                <button type="submit" onclick="alertmsg()">SUBMIT</button>
+               </div>
+            </form>
+    
+            <div id="messages">
+               <textarea name="" id=""  placeholder="enter the code" required ></textarea><br>
+               <header>
+                <h1>Message:</h1>
+                <button onclick="clearhandler()">clear</button>
+               </header>
+
+               <p id="result"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        let result=document.getElementById('result');
+        let submitbtn=document.getElementById('submitbtn')
+        function clearhandler(){
+            result.innerHTML=''
+        }
+
+        function cuthandler(){
+             result.innerHTML+='user is cut the text in code space <br>'
+        }
+        function copyhandler(){
+             result.innerHTML+='user is copied the code in code space <br>'
+        }
+
+        function pastehandler(){
+            let date=new Date();
+            // result.innerHTML+='user is pasted the code in the code space' +date.getHours()+":" + date.getMinutes() +':' +date.getSeconds()+'<br>';
+            result.innerHTML+=`user is pasted the code in the code space ${date.getHours()}H:${date.getMinutes()}M:${date.getSeconds()}S`;
+        }
+        function alertmsg(){
+            alert("submited successfully");
+        }
+    </script>
+</body>
+</html>

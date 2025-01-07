@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>play(),pause(),fullscreen()</h1>
+    </center>
+
+    <video src="./video.mp4"  height="300" width="400" id="video"></video>
+
+    <button onclick="playhandler()">play</button>
+    <button onclick="pausehandler()">pause</button>
+    <button onclick="fullscreenhandler()">view in fullscreen</button>
+
+    <div style="display: flex;gap: 20px;align-items: center;width: 200px;justify-content: space-between;background-color: #ccc;border-radius: 100px;padding: 5px 10px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin: auto;margin-top: 20px;">
+        <button onclick="audioplayhandler()" id="btn">play</button>
+        <h4>example audio</h4>
+        <a href="./audio.mp3" download="./audio.mp3">download</a>
+    </div>
+    <script>
+        var video=document.getElementById('video');
+
+        function playhandler(){
+            video.play();
+        }
+        function pausehandler(){
+            video.pause();
+        }
+        function fullscreenhandler(){
+            video.requestFullscreen();
+        }
+        //to create audio in js
+        let audio1=new Audio('./audio.mp3');
+        let btn=document.getElementById('btn');
+
+        function audioplayhandler(){
+            if(audio1.paused){
+                audio1.play();
+                btn.innerText='pause';
+            }else{
+                audio1.pause();
+                btn.innerText='play';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Booking Simulation</title>
+    <style>
+        #car {
+            width:100%;
+            height: 100vh;
+           background: url('https://static.vecteezy.com/system/resources/previews/029/912/484/non_2x/white-modern-car-isolated-on-transparent-background-3d-rendering-illustration-free-png.png')no-repeat;
+           background-size: contain;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            transition: left 0.2s;
+        }
+        #road {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            background: url('https://media.istockphoto.com/photos/suburb-asphalt-road-and-sun-flowers-picture-id603164912?k=6&m=603164912&s=612x612&w=0&h=LJGW23sfy494JvQWp_DrTcyC039TOJKElGedhllBev8=')no-repeat bottom;
+            background-size: cover;
+            /* background-color: #ddd; */
+        }
+        .form {
+            width: 400px;
+            height: 70px;
+            background-color: black;
+            padding: 20px;
+        }
+        .form label{
+            color: #fff;
+            font-size: 1.1rem;
+
+        }
+        .form input{
+            width: 60%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+            outline: none;
+        }
+        .form button{
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #3498db;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 20px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+        
+
+    </style>
+</head>
+<body>
+    <!-- <h1>Car Booking Simulation</h1> -->
+    <div class="form">
+    <label for="time">Set Time (seconds): </label>
+    <input type="number" id="time" min="1" step="1">
+    <button id="startBtn">Start</button>
+    </div>
+
+    <div id="road">
+        <div id="car"></div>
+    </div>
+
+    <script>
+        const car = document.getElementById("car");
+        const startBtn = document.getElementById("startBtn");
+        const timeInput = document.getElementById("time");
+        let carPosition = 0;
+        let moveInterval;
+        let stopTimeout;
+
+        function moveCar() {
+            moveInterval = setInterval(() => {
+                carPosition += 5; // Move the car by 5px
+                car.style.left = carPosition + "px";
+                if (carPosition > window.innerWidth) {
+                    carPosition = 0; // Reset car position when it reaches the end
+                }
+            }, 100);
+        }
+
+        function stopCar() {
+            clearInterval(moveInterval);
+        }
+
+        // function startSimulation() {
+        //     const userTime = parseInt(timeInput.value, 10);
+        //     if (isNaN(userTime) || userTime <= 0) {
+        //         alert("Please enter a valid time in seconds.");
+        //         return;
+        //     }
+
+        //     moveCar(); // Start moving the car
+        //     clearTimeout(stopTimeout);
+
+        //     // Stop the car at the set time
+        //     stopTimeout = setTimeout(() => {
+        //         stopCar();
+        //         alert("Car stopped at the booked time.");
+
+        //         // Resume the car movement after 3 seconds
+        //         setTimeout(() => {
+        //             alert("Car resuming...");
+        //             moveCar();
+        //         }, 3000);
+        //     }, userTime * 1000);
+        // }
+
+        startBtn.addEventListener("click", startSimulation);
+    </script>
+</body>
+</html>

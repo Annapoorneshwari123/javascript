@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text{
+            width: 400px;
+            padding: 20px;
+            text-align: justify;
+            line-height: 1.7;
+            height: 500px;
+            overflow: auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 2px solid #ccc;
+            margin: auto;
+        }
+        img{
+            width: 80px;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text" onscroll="onscrollhandler()">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit pariatur dicta beatae aperiam animi dolorum laborum consequatur ab corrupti. Dolorum eum natus qui libero, nulla culpa architecto voluptas delectus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit pariatur dicta beatae aperiam animi dolorum laborum consequatur ab corrupti. Dolorum eum natus qui libero, nulla culpa architecto voluptas delectus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit pariatur dicta beatae aperiam animi dolorum laborum consequatur ab corrupti. Dolorum eum natus qui libero, nulla culpa architecto voluptas delectus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit pariatur dicta beatae aperiam animi dolorum laborum consequatur ab corrupti. Dolorum eum natus qui libero, nulla culpa architecto voluptas delectus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit pariatur dicta beatae aperiam animi dolorum laborum consequatur ab corrupti. Dolorum eum natus qui libero, nulla culpa architecto voluptas delectus.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit pariatur dicta beatae aperiam animi dolorum laborum consequatur ab corrupti. Dolorum eum natus qui libero, nulla culpa architecto voluptas delectus.</p>
+    </div>
+    <button onclick="scrollincrement()">increment scroll</button>
+    <button onclick="scrolldecrement()">decrement scroll</button>
+
+
+    <img src="https://cdn-icons-png.freepik.com/256/9397/9397029.png?ga=GA1.1.1761321312.1725603828&semt=ais_hybrid" alt="img..." onclick="scrolltophandler()">
+
+    <script>
+        let textdiv=document.getElementById('text');
+        function onscrollhandler(){
+            console.log('user is scrolling in div');
+            console.log(textdiv.scrollTop);
+        }
+
+        function scrolltophandler(){
+            textdiv.scrollTop=0;
+
+        }
+        function scrollincrement(){
+            textdiv.scrollTop=textdiv.scrollTop+10;
+        }
+
+        function scrolldecrement(){
+            textdiv.scrollTop=textdiv.scrollTop-10;
+        }
+    </script>
+</body>
+</html>

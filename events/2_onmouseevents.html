@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>mouse events</h1>
+        <p>1)onmousemove  2)onmouseout</p>
+    </center>
+    
+
+    <button id="btn1" onmousemove="handlermove()" onmouseout="removehandler()">button</button>
+    <script>
+        let btn1=document.getElementById('btn1');
+
+        function handlermove(){
+            btn1.style.background="blue"
+        }
+        function removehandler(){
+            btn1.style.background="green"
+        }
+
+    </script>
+</body>
+</html>
