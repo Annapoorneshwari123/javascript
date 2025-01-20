@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //to create a array variable using constructor we need to creae one instance for taht constructor using new keyword with Array() constructor in every constructor the first letter is capital
+        let colors=new Array();
+        console.log(('length=',colors.lenght));//0
+        console.log('value=',colors);
+
+        //created array is empty there are no values so we need to add some values inside the array
+        //to add we need to use :=> arrayname[indexposition]=value
+        //assigning a values to index position of the array variable
+        colors[0]='red';
+        console.log(('length=',colors.lenght));//1
+        console.log('value=',colors);//red
+
+        colors[1]='blue';
+        console.log(('length=',colors.lenght));//2
+        console.log('value=',colors);//red,blue
+
+        colors[1]='green';
+        console.log(('length=',colors.lenght));//3
+        console.log('value=',colors);//red,blue,green
+        
+
+        //printing the array
+        console.log('the value of the colors array variable=',colors);
+        //printing array variable inside the document
+        document.write(`<h1>array variable colors=${colors}</h1>`);
+
+
+        //inside the console
+        console.log(colors[0]);
+        console.log(colors[1]);
+        console.log(colors[2]);
+
+        //to read array values ata a time we can use for loops
+        for(let index=0; index<colors.length;index++){
+            console.log(index);
+            console.log(colors[index]);
+            document.write(`<h1><span style='background-color:${colors[index]};color:#fff'> value= </span> <span style='color:${colors[index]}'> ${colors[index]} </span></h1>`)
+            
+        }
+
+        
+        
+        
+    </script>
+</body>
+</html>
