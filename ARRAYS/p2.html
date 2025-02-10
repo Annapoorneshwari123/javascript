@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Mobiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .card p {
+            color: gray;
+            margin: 5px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="search-box" id="price-search" placeholder="Search by price...">
+    <div class="container" id="mobile-list"></div>
+
+    <script>
+        const budgetMobiles = [
+            { id: 1, name: "Redmi Note 12", price: 199, image: "https://example.com/redmi-note-12.jpg" },
+            { id: 2, name: "Samsung Galaxy A14", price: 179, image: "https://example.com/samsung-a14.jpg" },
+            { id: 3, name: "Realme C55", price: 150, image: "https://example.com/realme-c55.jpg" },
+            { id: 4, name: "Vivo T3x", price: 150, image: "https://example.com/realme-c55.jpg" },
+            { id: 5, name: "iphone", price: 180, image: "https://example.com/realme-c55.jpg" }
+
+
+        ];
+
+        const mobileList = document.getElementById("mobile-list");
+        const priceSearch = document.getElementById("price-search");
+
+        function displayMobiles(mobiles) {
+            mobileList.innerHTML = "";
+            mobiles.forEach(mobile => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <img src="${mobile.image}" alt="${mobile.name}">
+                    <h2>${mobile.name}</h2>
+                    <p>$${mobile.price}</p>
+                    <a href="#" class="btn">Add to Cart</a>
+                `;
+                mobileList.appendChild(card);
+            });
+        }
+
+        displayMobiles(budgetMobiles);
+
+        priceSearch.addEventListener("input", () => {
+            const searchValue = parseFloat(priceSearch.value);
+            if (!isNaN(searchValue)) {
+                const filteredMobiles = budgetMobiles.filter(mobile => Math.abs(mobile.price - searchValue) <= 20);
+                displayMobiles(filteredMobiles);
+            } else {
+                displayMobiles(budgetMobiles);
+            }
+        });
+    </script>
+</body>
+</html>

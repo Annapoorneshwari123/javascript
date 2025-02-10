@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>concat() method</h1>
+        <p>the concat method joins or combine the two or more arrays and returns a new array and containing the joined array.this method does not change the original array.</p>
+    </center>
+
+    <p>syntax:</p>
+    <pre>
+        array1.concat(array2,array3,array4,......,arrayN);
+    </pre>
+
+
+    <script>
+        //adding all class students with a college array to calculate total number of students
+        let class1student=['naveen','kumar','kiran','varun','ashwin'];
+        let class2student=['varsha','yashu','suma','swathi'];
+        let totalstudents=class1student.concat(class2student);
+        console.log('total students in a college:',totalstudents);
+        console.log('checking new_array is array or not:',Array.isArray(totalstudents));//true
+
+
+
+        //if it is a number
+        let arry1=[1,2,3,4,5];
+        let arry2=[6,7,8,9,10];
+        let arry3=[11,12,13,14,15,16];
+
+        //lets add or combine all the array in to the new array
+        let new_arry=arry1.concat(arry2,arry3);
+        console.log('new array of the three array :',new_arry);
+        console.log('which type of array is:',typeof new_arry);
+        
+
+        console.log('checking new_array is array or not:',Array.isArray(new_arry));//true
+        
+        
+        
+    </script>
+</body>
+</html>

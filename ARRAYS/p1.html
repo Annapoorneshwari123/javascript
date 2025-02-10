@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+      }
+      .container{
+         min-height: 100vh;
+         width: 100%;
+         background-color: lightblue;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+      #cards{
+         width: 300px;
+         min-height: 500px;
+         max-height: fit-content;
+         background-color: #fff;
+         object-fit:contain;
+         padding: 20px;
+      }
+      #cards img{
+         width: 280px;
+      }
+      #cards form select{
+         width: 100%;
+         border: none;
+         outline: none;
+         margin-top: 10px;
+         padding: 8px 10px;
+         border: 1px solid #ccc;
+      }
+    </style>
+</head>
+<body>
+   <section class="container">
+      <div id="cards">
+         <form action="">
+            <select name="" id="brands">
+            <option value="" selected>select the brand mobile</option>
+            <option value="">Vivo</option>
+            <option value="">oppo</option>
+            <option value="">Samsung</option>
+            <option value="">Motorola</option>
+            <option value="">oneplus</option>
+            <option value="">iphone</option>
+            <option value="">Redmi</option>
+            <option value="">Google pixel</option>
+         </select>
+         <select name="" id="price">
+            <option value="">10000 - 15000</option>
+            <option value="">15000 - 20000</option>
+            <option value="">20000 - 25000</option>
+            <option value="">30000 - 35000</option>
+
+         </select>
+         </form>
+      </div>
+   </section>
+    <script>
+         let phone=[
+            {
+               mobilename:'vivo' ,
+               price:15000
+            },
+            {
+               mobilename:'samsung' ,
+               price:18000
+            },
+            {
+               mobilename:'oneplus' ,
+               price:25000
+            },
+            {
+               mobilename:'oppo' ,
+               price:20000
+            },
+            {
+               mobilename:'moto' ,
+               price:18000
+            },
+            {
+               mobilename:'redmi' ,
+               price:16500
+            }
+        ]
+        let cards=document.getElementById('cards');
+        function budgetfriendly(mobilename,price){
+           for(let i=0;i<phone.length;i++){
+            if(){
+            cards.innerHTML+=`
+            <img src="https://www.techinn.com/f/13785/137857884/huawei-p-smart-2021-4gb-128gb-6.67-dual-sim-smartphone.jpg" alt="mobiles">
+            <h1>${phone[i].mobilename}</h1>
+            <p>A mobile phone is a wireless handheld communication device that allows users to make and receive calls. Depending on the phone’s form factor and features, a mobile phone may also be referred to as a cellular phone (cell phone) or smartphone.</p>
+            <p>${phone[i].price}</p>
+            `
+           }else{
+            cards.innerHTML='No,their is no mobile found'; 
+           }
+           }
+        }
+        budgetfriendly()
+    </script>
+</body>
+</html>

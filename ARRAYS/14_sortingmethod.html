@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>sorting in the ascending and descending order</h1>
+    
+    <script>
+        let numberarray1=[43,56,67,78,23,31,12,33,56,90,88,99,100,500,345,1003];
+        console.log('before the sorting function ',numberarray1);
+
+        //using comparsion function
+        //numberarray1.sort();
+        // console.log(numberarray1);
+
+        //for acsending order
+        numberarray1.sort((currentitem,nextitem)=>{
+            return currentitem-nextitem;
+        })
+        console.log('after sorting functon in ascending:',numberarray1);
+
+        //for descending order
+        let numberarray2=[43,56,67,78,23,31,12,33,56,90,88,99,100,500,345,1003];
+        numberarray2.sort((currentitem,nextitem)=>{
+            return nextitem-currentitem;
+        })
+        console.log('after sorting functon in descending:',numberarray2);
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h2>21) some();</h2>
+        <p>The some() method tests whether at least one element in the array passes the test implemented by the provided function.</p>
+        <p>It returns a true Value if, in the array, it founds an element for which the provided function returns true; otherwise it returns false. It does not modifies the array.</p>
+    </center>
+    <hr>
+
+    <p><b>SYNATX :</b></p>
+    <pre>
+        array.some((element)=>{});
+    </pre>
+    <hr>
+
+    <script>
+        let array1=[10,20,40,100,105];
+        console.log(array1.some((item)=>item>100));//true
+        
+        // let array1 = [5, 23, 45, 67, 35, 34, 56, 90];
+        // console.log(array1);
+        
+        // // const condition = (item) => item<20
+        // console.log(array.some((item)=>item<20));
+
+        // function testStudent(studentsMarks){
+        //     if(studentsMarks.some((marks)=>marks>=35)){
+        //         console.log('student is pass');
+                
+        //     }else{
+        //         console.log('student fail');
+                
+        //     }
+        // }
+        // testStudent(array1); 
+
+        let phone=[
+            {
+               mobilename:'vivo' ,
+               price:15000
+            },
+            {
+               mobilename:'samsung' ,
+               price:18000
+            },
+            {
+               mobilename:'oneplus' ,
+               price:25000
+            },
+            {
+               mobilename:'oppo' ,
+               price:20000
+            }
+        ]
+        
+        function budgetfriendly(mobilename,price){
+           if(phone.some((item)=>item.price>=10000)){
+            console.log('the mobile is their under your budget');
+           }else{
+            console.log('No,their is no mobile found'); 
+           }
+        }
+        budgetfriendly('oneplus',18000);
+        
+    </script>
+
+<script>
+    let array = [10, 30, 40, 50, 101, 7, 75]
+    console.log(array.some((item) => item > 100)); //true
+
+    let mobileData = [{
+            mobileName: "iphone",
+            mobilePrice: 160000
+        },
+        {
+            mobileName: "samsung",
+            mobilePrice: 82000
+        },
+        {
+            mobileName: "vivo",
+            mobilePrice: 78000
+        },
+        {
+            mobileName: "samsungS25",
+            mobilePrice: 14000
+        },
+        {
+            mobileName: "oppo",
+            mobilePrice: 9000
+        }
+    ]
+
+    function mobileCheck(mobiles, price) {
+        if (mobiles.some((mobileData) => mobileData.mobilePrice < price)) {
+            console.log('There are some mobiles related to your search');
+
+        } else {
+            console.log('Sorry, there are no products related to your search');
+
+        }
+    }
+
+    mobileCheck(mobileData, 20000)
+    mobileCheck(mobileData, 200)
+</script>
+
+</body>
+</html>
