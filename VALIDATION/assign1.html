@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Form Validation</h2>
+    <form id="myForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <span class="error" id="nameError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone">
+            <span class="error" id="phoneError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <span class="error" id="passwordError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword">
+            <span class="error" id="confirmPasswordError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age">
+            <span class="error" id="ageError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+            <span class="error" id="dobError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address">
+            <span class="error" id="addressError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city">
+            <span class="error" id="cityError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" id="state">
+            <span class="error" id="stateError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip">
+            <span class="error" id="zipError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" id="country">
+            <span class="error" id="countryError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <span class="error" id="genderError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="agree">Agree to Terms:</label>
+            <input type="checkbox" id="agree">
+            <span class="error" id="agreeError"></span>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        let isValid = true;
+
+        function validateField(id, errorMessage) {
+            let field = document.getElementById(id);
+            let errorSpan = document.getElementById(id + "Error");
+            if (field.value.trim() === "") {
+                errorSpan.textContent = errorMessage;
+                isValid = false;
+            } else {
+                errorSpan.textContent = "";
+            }
+        }
+
+        validateField("name", "Name is required");
+        validateField("email", "Email is required");
+        validateField("phone", "Phone number is required");
+        validateField("password", "Password is required");
+        validateField("confirmPassword", "Please confirm your password");
+        validateField("age", "Age is required");
+        validateField("dob", "Date of birth is required");
+        validateField("address", "Address is required");
+        validateField("city", "City is required");
+        validateField("state", "State is required");
+        validateField("zip", "ZIP Code is required");
+        validateField("country", "Country is required");
+        validateField("gender", "Gender selection is required");
+
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        if (confirmPassword !== password) {
+            document.getElementById("confirmPasswordError").textContent = "Passwords do not match";
+            isValid = false;
+        }
+
+        let agree = document.getElementById("agree").checked;
+        if (!agree) {
+            document.getElementById("agreeError").textContent = "You must agree to the terms";
+            isValid = false;
+        } else {
+            document.getElementById("agreeError").textContent = "";
+        }
+
+        if (isValid) {
+            alert("Form submitted successfully!");
+        }
+    });
+</script>
+
+</body>
+</html>
